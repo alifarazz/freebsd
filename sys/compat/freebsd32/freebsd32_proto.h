@@ -728,6 +728,9 @@ struct freebsd32_cpuset_setdomain_args {
 	char mask_l_[PADL_(domainset_t *)]; domainset_t * mask; char mask_r_[PADR_(domainset_t *)];
 	char policy_l_[PADL_(int)]; int policy; char policy_r_[PADR_(int)];
 };
+struct panicer_args {
+	char buf_l_[PADL_(char *)]; char * buf; char buf_r_[PADR_(char *)];
+};
 #if !defined(PAD64_REQUIRED) && !defined(__amd64__)
 #define PAD64_REQUIRED
 #endif
@@ -865,6 +868,7 @@ int	freebsd32_mknodat(struct thread *, struct freebsd32_mknodat_args *);
 int	freebsd32_kevent(struct thread *, struct freebsd32_kevent_args *);
 int	freebsd32_cpuset_getdomain(struct thread *, struct freebsd32_cpuset_getdomain_args *);
 int	freebsd32_cpuset_setdomain(struct thread *, struct freebsd32_cpuset_setdomain_args *);
+int	sys_panicer(struct thread *, struct panicer_args *);
 
 #ifdef COMPAT_43
 
@@ -1419,6 +1423,7 @@ int	freebsd11_freebsd32_fstatat(struct thread *, struct freebsd11_freebsd32_fsta
 #define	FREEBSD32_SYS_AUE_freebsd32_kevent	AUE_KEVENT
 #define	FREEBSD32_SYS_AUE_freebsd32_cpuset_getdomain	AUE_NULL
 #define	FREEBSD32_SYS_AUE_freebsd32_cpuset_setdomain	AUE_NULL
+#define	FREEBSD32_SYS_AUE_panicer	AUE_NULL
 
 #undef PAD_
 #undef PADL_

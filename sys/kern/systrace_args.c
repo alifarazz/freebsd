@@ -972,7 +972,7 @@ systrace_args(int sysnum, void *params, uint64_t *uarg, int *n_args)
 		uarg[1] = p->namelen; /* u_int */
 		uarg[2] = (intptr_t) p->old; /* void * */
 		uarg[3] = (intptr_t) p->oldlenp; /* size_t * */
-		uarg[4] = (intptr_t) p->new; /* void * */
+		uarg[4] = (intptr_t) p->new; /* const void * */
 		uarg[5] = p->newlen; /* size_t */
 		*n_args = 6;
 		break;
@@ -3302,6 +3302,13 @@ systrace_args(int sysnum, void *params, uint64_t *uarg, int *n_args)
 		*n_args = 3;
 		break;
 	}
+	/* panicer */
+	case 568: {
+		struct panicer_args *p = params;
+		uarg[0] = (intptr_t) p->buf; /* char * */
+		*n_args = 1;
+		break;
+	}
 	default:
 		*n_args = 0;
 		break;
@@ -4867,7 +4874,7 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			p = "userland size_t *";
 			break;
 		case 4:
-			p = "userland void *";
+			p = "userland const void *";
 			break;
 		case 5:
 			p = "size_t";
@@ -8810,6 +8817,16 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			break;
 		};
 		break;
+	/* panicer */
+	case 568:
+		switch(ndx) {
+		case 0:
+			p = "userland char *";
+			break;
+		default:
+			break;
+		};
+		break;
 	default:
 		break;
 	};
@@ -10703,6 +10720,11 @@ systrace_return_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 		break;
 	/* fhreadlink */
 	case 567:
+		if (ndx == 0 || ndx == 1)
+			p = "int";
+		break;
+	/* panicer */
+	case 568:
 		if (ndx == 0 || ndx == 1)
 			p = "int";
 		break;
