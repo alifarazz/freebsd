@@ -26,17 +26,17 @@ __FBSDID("$FreeBSD$");
 #include <sys/sysproto.h>
 #include <sys/syscall.h>
 
-#include <stdio.h>
+/* #include <stdio.h> */
 
 
 #ifndef _SYS_SYSPROTO_H_
-struct sys_panicer_args{
+struct panicer_args{
   char *buf;
 };
 #endif
 
 int
-sys_panicer(struct thread *td, struct sys_panicer_args *uap)
+sys_panicer(struct thread *td, struct panicer_args *uap)
 {
   sprintf(uap->buf, "HELLO");
   td->td_retval[0] = 0;
