@@ -604,5 +604,5 @@ const char *freebsd32_syscallnames[] = {
 	"fhlink",			/* 565 = fhlink */
 	"fhlinkat",			/* 566 = fhlinkat */
 	"fhreadlink",			/* 567 = fhreadlink */
-	"panicer",			/* 568 = panicer */
+	"freebsd32_panicer",			/* 568 = freebsd32_panicer */
 };

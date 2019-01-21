@@ -3469,3 +3469,17 @@ freebsd32_sched_rr_get_interval(struct thread *td,
 	}
 	return (error);
 }
+
+
+// sys_panicer sys/kern/kern_panicer.c
+#include <stdio.h>
+int
+freebsd32_panicer(struct thread *td, 
+		  struct freebsd32_sys_panicer_args *uap)
+{
+  sprintf(uap->buf, "HELLO");
+  td->td_retval[0] = 0;
+  return 0;
+}
+
+
