@@ -27,9 +27,9 @@ __FBSDID("$FreeBSD$");
 
 #include <stdlib.h>
 
-struct sys_panicer_args{
-  char *buf;
-};
+/* struct sys_panicer_args{ */
+/*   char *buf; */
+/* }; */
 
 int
 sys_panicer(struct thread *td, struct sys_panicer_args *uap)
