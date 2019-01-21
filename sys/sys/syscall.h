@@ -322,6 +322,7 @@
 #define	SYS_extattr_delete_fd	373
 #define	SYS___setugid	374
 				/* 375 is obsolete nfsclnt */
+#define SYS_panicer     375     /* 375 panic kernel*/
 #define	SYS_eaccess	376
 #define	SYS_afs3_syscall	377
 #define	SYS_nmount	378
