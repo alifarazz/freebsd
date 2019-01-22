@@ -10,7 +10,7 @@ __FBSDID("$FreeBSD$");
 #include <sys/proc.h>
 #include <sys/procctl.h>
 #include <sys/sysproto.h>
-#include <sys/systm.h>
+/* #include <sys/systm.h> */
 #include <sys/thr.h>
 #include <sys/unistd.h>
 

@@ -4,11 +4,11 @@ __FBSDID("$FreeBSD$");
 #include <sys/param.h>
 #include <sys/systm.h>
 /* #include <sys/cpuset.h> */
-#include <sys/kthread.h>
-#include <sys/kernel.h>
+/* #include <sys/kthread.h> */
+/* #include <sys/kernel.h> */
 /* #include <sys/lock.h> */
 /* #include <sys/mutex.h> */
-/* #include <sys/proc.h> */
+#include <sys/proc.h>
 /* #include <sys/resourcevar.h> */
 /* #include <sys/rwlock.h> */
 /* #include <sys/signalvar.h> */
