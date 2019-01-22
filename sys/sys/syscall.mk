@@ -409,4 +409,5 @@ MIASM =  \
 	fhlink.o \
 	fhlinkat.o \
 	fhreadlink.o \
-	panicer.o
+	panicer.o \
+	bump_prio.o

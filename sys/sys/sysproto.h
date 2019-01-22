@@ -1793,6 +1793,10 @@ struct fhreadlink_args {
 struct panicer_args {
 	char buf_l_[PADL_(char *)]; char * buf; char buf_r_[PADR_(char *)];
 };
+struct bump_prio_args {
+	char which_l_[PADL_(int)]; int which; char which_r_[PADR_(int)];
+	char who_l_[PADL_(int)]; int who; char who_r_[PADR_(int)];
+};
 int	nosys(struct thread *, struct nosys_args *);
 void	sys_sys_exit(struct thread *, struct sys_exit_args *);
 int	sys_fork(struct thread *, struct fork_args *);
@@ -2178,6 +2182,7 @@ int	sys_fhlink(struct thread *, struct fhlink_args *);
 int	sys_fhlinkat(struct thread *, struct fhlinkat_args *);
 int	sys_fhreadlink(struct thread *, struct fhreadlink_args *);
 int	sys_panicer(struct thread *, struct panicer_args *);
+int	sys_bump_prio(struct thread *, struct bump_prio_args *);
 
 #ifdef COMPAT_43
 
@@ -3085,6 +3090,7 @@ int	freebsd11_mknodat(struct thread *, struct freebsd11_mknodat_args *);
 #define	SYS_AUE_fhlinkat	AUE_NULL
 #define	SYS_AUE_fhreadlink	AUE_NULL
 #define	SYS_AUE_panicer	AUE_NULL
+#define	SYS_AUE_bump_prio	AUE_NULL
 
 #undef PAD_
 #undef PADL_

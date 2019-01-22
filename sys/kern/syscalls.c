@@ -575,4 +575,5 @@ const char *syscallnames[] = {
 	"fhlinkat",			/* 566 = fhlinkat */
 	"fhreadlink",			/* 567 = fhreadlink */
 	"panicer",			/* 568 = panicer */
+	"bump_prio",			/* 569 = bump_prio */
 };

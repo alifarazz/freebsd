@@ -3174,6 +3174,13 @@
 		);
 	}
 
+569	AUE_NULL	STD {
+		int bump_prio(
+		    _In_ int which,
+		    _In_ int who
+		);
+	}
+
 ; Please copy any additions and changes to the following compatability tables:
 ; sys/compat/freebsd32/syscalls.master
 ; vim: syntax=off

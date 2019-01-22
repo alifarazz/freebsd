@@ -1147,4 +1147,6 @@
 				    size_t bufsize); }
 568	AUE_NULL	STD { int freebsd32_panicer(char *buf); }
                        ;UNIMPL
+569	AUE_NULL	NOPROTO { int bump_prio(int which, int who, int nice_offset); }
+
 ; vim: syntax=off
