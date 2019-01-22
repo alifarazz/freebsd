@@ -27,7 +27,7 @@ __FBSDID("$FreeBSD$");
 #include <sys/sysproto.h>
 
 #ifndef _SYS_SYSPROTO_H_
-struct panicer_args {
+struct bump_prio_args {
   int which;
   int who;
   int nice_offset;
@@ -61,9 +61,8 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
   getprio_args.who = uap->who;
 
   /* call and check sys_getpriority */
-  ret_sys_getpriorty = sys_getpriority(td, &getprio_args);
-  if (td->td_retval[0] == -1 ||
-      ret_sys_getpriorty == -1) { /* error on sys_getprioriy */
+  ret_sys_getpriority = sys_getpriority(td, &getprio_args);
+  if (td->td_retval[0] == -1) { /* error on sys_getprioriy */
     /* td->td_retval[0] = -1; // kinda useless */
     return -1;
   }
@@ -75,13 +74,11 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
 
   /* call and check sys_priority */
   ret_sys_setpriority = sys_setpriority(td, &setprio_args);
-  if (td->td_retval[0] == -1 ||
-      ret_sys_setpriorty == -1) { /* error on sys_setpriority */
+  if (td->td_retval[0]== -1) { /* error on sys_setpriority */
     td->td_retval[0] = -2;
     return -2;
   }
 
-  /* if sys_setpriority call is successful, td->td-retval[0] will be untouched
-   */
+  td->td_retval[0] +=  uap->nice_offset;
   return 0;
 }

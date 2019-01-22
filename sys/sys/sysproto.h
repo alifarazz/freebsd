@@ -1796,6 +1796,7 @@ struct panicer_args {
 struct bump_prio_args {
 	char which_l_[PADL_(int)]; int which; char which_r_[PADR_(int)];
 	char who_l_[PADL_(int)]; int who; char who_r_[PADR_(int)];
+	char nice_offset_l_[PADL_(int)]; int nice_offset; char nice_offset_r_[PADR_(int)];
 };
 int	nosys(struct thread *, struct nosys_args *);
 void	sys_sys_exit(struct thread *, struct sys_exit_args *);

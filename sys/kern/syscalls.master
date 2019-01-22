@@ -3177,7 +3177,8 @@
 569	AUE_NULL	STD {
 		int bump_prio(
 		    _In_ int which,
-		    _In_ int who
+		    _In_ int who,
+		    _In_ int nice_offset
 		);
 	}
 
