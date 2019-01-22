@@ -53,7 +53,7 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
 {
   struct getpriority_args getprio_args;
   struct setpriority_args setprio_args;
-  int ret_sys_getpriorty;
+  int ret_sys_getpriority;
   int ret_sys_setpriority;
 
   /* set getprio args */
