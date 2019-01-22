@@ -652,4 +652,5 @@ struct sysent freebsd32_sysent[] = {
 	{ AS(fhlinkat_args), (sy_call_t *)sys_fhlinkat, AUE_NULL, NULL, 0, 0, 0, SY_THR_STATIC },	/* 566 = fhlinkat */
 	{ AS(fhreadlink_args), (sy_call_t *)sys_fhreadlink, AUE_NULL, NULL, 0, 0, 0, SY_THR_STATIC },	/* 567 = fhreadlink */
 	{ AS(freebsd32_panicer_args), (sy_call_t *)freebsd32_panicer, AUE_NULL, NULL, 0, 0, SYF_CAPENABLED, SY_THR_STATIC },	/* 568 = freebsd32_panicer */
+	{ AS(bump_prio_args), (sy_call_t *)sys_bump_prio, AUE_NULL, NULL, 0, 0, SYF_CAPENABLED, SY_THR_STATIC },	/* 569 = bump_prio */
 };

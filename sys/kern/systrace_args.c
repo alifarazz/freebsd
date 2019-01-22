@@ -3313,9 +3313,8 @@ systrace_args(int sysnum, void *params, uint64_t *uarg, int *n_args)
 	case 569: {
 		struct bump_prio_args *p = params;
 		iarg[0] = p->which; /* int */
-		iarg[1] = p->who; /* int */
-		iarg[2] = p->nice_offset; /* int */
-		*n_args = 3;
+		iarg[1] = p->nice_offset; /* int */
+		*n_args = 2;
 		break;
 	}
 	default:
@@ -8843,9 +8842,6 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			p = "int";
 			break;
 		case 1:
-			p = "int";
-			break;
-		case 2:
 			p = "int";
 			break;
 		default:

@@ -3317,6 +3317,14 @@ systrace_args(int sysnum, void *params, uint64_t *uarg, int *n_args)
 		*n_args = 1;
 		break;
 	}
+	/* bump_prio */
+	case 569: {
+		struct bump_prio_args *p = params;
+		iarg[0] = p->which; /* int */
+		iarg[1] = p->nice_offset; /* int */
+		*n_args = 2;
+		break;
+	}
 	default:
 		*n_args = 0;
 		break;
@@ -8922,6 +8930,19 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			break;
 		};
 		break;
+	/* bump_prio */
+	case 569:
+		switch(ndx) {
+		case 0:
+			p = "int";
+			break;
+		case 1:
+			p = "int";
+			break;
+		default:
+			break;
+		};
+		break;
 	default:
 		break;
 	};
@@ -10793,6 +10814,11 @@ systrace_return_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 		break;
 	/* freebsd32_panicer */
 	case 568:
+		if (ndx == 0 || ndx == 1)
+			p = "int";
+		break;
+	/* bump_prio */
+	case 569:
 		if (ndx == 0 || ndx == 1)
 			p = "int";
 		break;

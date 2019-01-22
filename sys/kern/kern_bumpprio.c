@@ -29,7 +29,6 @@ __FBSDID("$FreeBSD$");
 #ifndef _SYS_SYSPROTO_H_
 struct bump_prio_args {
   int which;
-  int who;
   int nice_offset;
 };
 struct setpriority_args {
@@ -55,10 +54,11 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
   struct setpriority_args setprio_args;
   int ret_sys_getpriority;
   int ret_sys_setpriority;
+  int who = td->td_proc->p_pid;	/* from sys_getpid */
 
   /* set getprio args */
   getprio_args.which = uap->which;
-  getprio_args.who = uap->who;
+  getprio_args.who = who;
 
   /* call and check sys_getpriority */
   ret_sys_getpriority = sys_getpriority(td, &getprio_args);
@@ -69,7 +69,7 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
 
   /* set setprio args */
   setprio_args.which = uap->which;
-  setprio_args.who = uap->who;
+  setprio_args.who = who;
   setprio_args.prio = td->td_retval[0] + uap->nice_offset; /* add nice offset */
 
   /* call and check sys_priority */
@@ -79,6 +79,6 @@ sys_bump_prio(struct thread *td, struct bump_prio_args *uap)
     return -2;
   }
 
-  td->td_retval[0] +=  uap->nice_offset;
+  td->td_retval[0] +=  uap->nice_offset; /* like sys_getpriority ret values */
   return 0;
 }

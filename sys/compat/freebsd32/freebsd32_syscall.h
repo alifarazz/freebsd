@@ -495,4 +495,5 @@
 #define	FREEBSD32_SYS_fhlinkat	566
 #define	FREEBSD32_SYS_fhreadlink	567
 #define	FREEBSD32_SYS_freebsd32_panicer	568
-#define	FREEBSD32_SYS_MAXSYSCALL	569
+#define	FREEBSD32_SYS_bump_prio	569
+#define	FREEBSD32_SYS_MAXSYSCALL	570

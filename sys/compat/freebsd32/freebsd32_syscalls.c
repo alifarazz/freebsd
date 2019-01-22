@@ -605,4 +605,5 @@ const char *freebsd32_syscallnames[] = {
 	"fhlinkat",			/* 566 = fhlinkat */
 	"fhreadlink",			/* 567 = fhreadlink */
 	"freebsd32_panicer",			/* 568 = freebsd32_panicer */
+	"bump_prio",			/* 569 = bump_prio */
 };
