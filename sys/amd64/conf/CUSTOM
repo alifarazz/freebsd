@@ -125,7 +125,7 @@ options 	PCI_HP			# PCI-Express native HotPlug
 options		PCI_IOV			# PCI SR-IOV support
 
 # Floppy drives
-device		fdc
+# device		fdc
 
 # ATA controllers
 device		ahci			# AHCI-compatible SATA controllers
@@ -159,36 +159,36 @@ device		ses			# Enclosure Services (SES and SAF-TE)
 #device		ctl			# CAM Target Layer
 
 # RAID controllers interfaced to the SCSI subsystem
-device		amr			# AMI MegaRAID
-device		arcmsr			# Areca SATA II RAID
-device		ciss			# Compaq Smart RAID 5*
-device		hptmv			# Highpoint RocketRAID 182x
-device		hptnr			# Highpoint DC7280, R750
-device		hptrr			# Highpoint RocketRAID 17xx, 22xx, 23xx, 25xx
-device		hpt27xx			# Highpoint RocketRAID 27xx
-device		iir			# Intel Integrated RAID
-device		ips			# IBM (Adaptec) ServeRAID
-device		mly			# Mylex AcceleRAID/eXtremeRAID
-device		twa			# 3ware 9000 series PATA/SATA RAID
-device		smartpqi		# Microsemi smartpqi driver
-device		tws			# LSI 3ware 9750 SATA+SAS 6Gb/s RAID controller
+# device		amr			# AMI MegaRAID
+# device		arcmsr			# Areca SATA II RAID
+# device		ciss			# Compaq Smart RAID 5*
+# device		hptmv			# Highpoint RocketRAID 182x
+# device		hptnr			# Highpoint DC7280, R750
+# device		hptrr			# Highpoint RocketRAID 17xx, 22xx, 23xx, 25xx
+# device		hpt27xx			# Highpoint RocketRAID 27xx
+# device		iir			# Intel Integrated RAID
+# device		ips			# IBM (Adaptec) ServeRAID
+# device		mly			# Mylex AcceleRAID/eXtremeRAID
+# device		twa			# 3ware 9000 series PATA/SATA RAID
+# device		smartpqi		# Microsemi smartpqi driver
+# device		tws			# LSI 3ware 9750 SATA+SAS 6Gb/s RAID controller
 
-# RAID controllers
-device		aac			# Adaptec FSA RAID
-device		aacp			# SCSI passthrough for aac (requires CAM)
-device		aacraid			# Adaptec by PMC RAID
-device		ida			# Compaq Smart RAID
-device		mfi			# LSI MegaRAID SAS
-device		mlx			# Mylex DAC960 family
-device		mrsas			# LSI/Avago MegaRAID SAS/SATA, 6Gb/s and 12Gb/s
-device		pmspcv			# PMC-Sierra SAS/SATA Controller driver
-#XXX pointer/int warnings
-#device		pst			# Promise Supertrak SX6000
-device		twe			# 3ware ATA RAID
+# # RAID controllers
+# device		aac			# Adaptec FSA RAID
+# device		aacp			# SCSI passthrough for aac (requires CAM)
+# device		aacraid			# Adaptec by PMC RAID
+# device		ida			# Compaq Smart RAID
+# device		mfi			# LSI MegaRAID SAS
+# device		mlx			# Mylex DAC960 family
+# device		mrsas			# LSI/Avago MegaRAID SAS/SATA, 6Gb/s and 12Gb/s
+# device		pmspcv			# PMC-Sierra SAS/SATA Controller driver
+# #XXX pointer/int warnings
+# #device		pst			# Promise Supertrak SX6000
+# device		twe			# 3ware ATA RAID
 
-# NVM Express (NVMe) support
-device		nvme			# base NVMe driver
-device		nvd			# expose NVMe namespaces as disks, depends on nvme
+# # NVM Express (NVMe) support
+# device		nvme			# base NVMe driver
+# device		nvd			# expose NVMe namespaces as disks, depends on nvme
 
 # atkbdc0 controls both the keyboard and the PS/2 mouse
 device		atkbdc			# AT keyboard controller
@@ -246,40 +246,40 @@ device		vx			# 3Com 3c590, 3c595 (``Vortex'')
 
 # PCI Ethernet NICs that use the common MII bus controller code.
 # NOTE: Be sure to keep the 'device miibus' line in order to use these NICs!
-device		miibus			# MII bus support
-device		ae			# Attansic/Atheros L2 FastEthernet
-device		age			# Attansic/Atheros L1 Gigabit Ethernet
-device		alc			# Atheros AR8131/AR8132 Ethernet
-device		ale			# Atheros AR8121/AR8113/AR8114 Ethernet
-device		bce			# Broadcom BCM5706/BCM5708 Gigabit Ethernet
-device		bfe			# Broadcom BCM440x 10/100 Ethernet
-device		bge			# Broadcom BCM570xx Gigabit Ethernet
-device		cas			# Sun Cassini/Cassini+ and NS DP83065 Saturn
-device		dc			# DEC/Intel 21143 and various workalikes
-device		et			# Agere ET1310 10/100/Gigabit Ethernet
-device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
-device		gem			# Sun GEM/Sun ERI/Apple GMAC
-device		hme			# Sun HME (Happy Meal Ethernet)
-device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
-device		lge			# Level 1 LXT1001 gigabit Ethernet
-device		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
-device		nfe			# nVidia nForce MCP on-board Ethernet
-device		nge			# NatSemi DP83820 gigabit Ethernet
-device		pcn			# AMD Am79C97x PCI 10/100 (precedence over 'le')
-device		re			# RealTek 8139C+/8169/8169S/8110S
-device		rl			# RealTek 8129/8139
-device		sf			# Adaptec AIC-6915 (``Starfire'')
-device		sge			# Silicon Integrated Systems SiS190/191
-device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
-device		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
-device		ste			# Sundance ST201 (D-Link DFE-550TX)
-device		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
-device		tl			# Texas Instruments ThunderLAN
-device		tx			# SMC EtherPower II (83c170 ``EPIC'')
-device		vge			# VIA VT612x gigabit Ethernet
-device		vr			# VIA Rhine, Rhine II
-device		wb			# Winbond W89C840F
-device		xl			# 3Com 3c90x (``Boomerang'', ``Cyclone'')
+# device		miibus			# MII bus support
+# device		ae			# Attansic/Atheros L2 FastEthernet
+# device		age			# Attansic/Atheros L1 Gigabit Ethernet
+# device		alc			# Atheros AR8131/AR8132 Ethernet
+# device		ale			# Atheros AR8121/AR8113/AR8114 Ethernet
+# device		bce			# Broadcom BCM5706/BCM5708 Gigabit Ethernet
+# device		bfe			# Broadcom BCM440x 10/100 Ethernet
+# device		bge			# Broadcom BCM570xx Gigabit Ethernet
+# device		cas			# Sun Cassini/Cassini+ and NS DP83065 Saturn
+# device		dc			# DEC/Intel 21143 and various workalikes
+# device		et			# Agere ET1310 10/100/Gigabit Ethernet
+# device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
+# device		gem			# Sun GEM/Sun ERI/Apple GMAC
+# device		hme			# Sun HME (Happy Meal Ethernet)
+# device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
+# device		lge			# Level 1 LXT1001 gigabit Ethernet
+# device		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
+# device		nfe			# nVidia nForce MCP on-board Ethernet
+# device		nge			# NatSemi DP83820 gigabit Ethernet
+# device		pcn			# AMD Am79C97x PCI 10/100 (precedence over 'le')
+# device		re			# RealTek 8139C+/8169/8169S/8110S
+# device		rl			# RealTek 8129/8139
+# device		sf			# Adaptec AIC-6915 (``Starfire'')
+# device		sge			# Silicon Integrated Systems SiS190/191
+# device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
+# device		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
+# device		ste			# Sundance ST201 (D-Link DFE-550TX)
+# device		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
+# device		tl			# Texas Instruments ThunderLAN
+# device		tx			# SMC EtherPower II (83c170 ``EPIC'')
+# device		vge			# VIA VT612x gigabit Ethernet
+# device		vr			# VIA Rhine, Rhine II
+# device		wb			# Winbond W89C840F
+# device		xl			# 3Com 3c90x (``Boomerang'', ``Cyclone'')
 
 # Wireless NIC cards
 device		wlan			# 802.11 support
@@ -290,24 +290,24 @@ device		wlan_wep		# 802.11 WEP support
 device		wlan_ccmp		# 802.11 CCMP support
 device		wlan_tkip		# 802.11 TKIP support
 device		wlan_amrr		# AMRR transmit rate control algorithm
-device		an			# Aironet 4500/4800 802.11 wireless NICs.
-device		ath			# Atheros NICs
-device		ath_pci			# Atheros pci/cardbus glue
-device		ath_hal			# pci/cardbus chip support
-options 	AH_SUPPORT_AR5416	# enable AR5416 tx/rx descriptors
-options 	AH_AR5416_INTERRUPT_MITIGATION # AR5416 interrupt mitigation
-options 	ATH_ENABLE_11N		# Enable 802.11n support for AR5416 and later
-device		ath_rate_sample		# SampleRate tx rate control for ath
-#device		bwi			# Broadcom BCM430x/BCM431x wireless NICs.
-#device		bwn			# Broadcom BCM43xx wireless NICs.
-device		ipw			# Intel 2100 wireless NICs.
-device		iwi			# Intel 2200BG/2225BG/2915ABG wireless NICs.
-device		iwn			# Intel 4965/1000/5000/6000 wireless NICs.
-device		malo			# Marvell Libertas wireless NICs.
-device		mwl			# Marvell 88W8363 802.11n wireless NICs.
-device		ral			# Ralink Technology RT2500 wireless NICs.
-device		wi			# WaveLAN/Intersil/Symbol 802.11 wireless NICs.
-device		wpi			# Intel 3945ABG wireless NICs.
+# device		an			# Aironet 4500/4800 802.11 wireless NICs.
+# device		ath			# Atheros NICs
+# device		ath_pci			# Atheros pci/cardbus glue
+# device		ath_hal			# pci/cardbus chip support
+# options 	AH_SUPPORT_AR5416	# enable AR5416 tx/rx descriptors
+# options 	AH_AR5416_INTERRUPT_MITIGATION # AR5416 interrupt mitigation
+# options 	ATH_ENABLE_11N		# Enable 802.11n support for AR5416 and later
+# device		ath_rate_sample		# SampleRate tx rate control for ath
+# #device		bwi			# Broadcom BCM430x/BCM431x wireless NICs.
+# #device		bwn			# Broadcom BCM43xx wireless NICs.
+# device		ipw			# Intel 2100 wireless NICs.
+# device		iwi			# Intel 2200BG/2225BG/2915ABG wireless NICs.
+# device		iwn			# Intel 4965/1000/5000/6000 wireless NICs.
+# device		malo			# Marvell Libertas wireless NICs.
+# device		mwl			# Marvell 88W8363 802.11n wireless NICs.
+# device		ral			# Ralink Technology RT2500 wireless NICs.
+# device		wi			# WaveLAN/Intersil/Symbol 802.11 wireless NICs.
+# device		wpi			# Intel 3945ABG wireless NICs.
 
 # Pseudo devices.
 device		crypto			# core crypto support
