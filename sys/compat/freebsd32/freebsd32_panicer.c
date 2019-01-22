@@ -16,9 +16,6 @@ __FBSDID("$FreeBSD$");
 
 #include <compat/freebsd32/freebsd32_util.h>
 #include <compat/freebsd32/freebsd32.h>
-#include <compat/freebsd32/freebsd32_ipc.h>
-#include <compat/freebsd32/freebsd32_misc.h>
-#include <compat/freebsd32/freebsd32_signal.h>
 #include <compat/freebsd32/freebsd32_proto.h>
 
 int
